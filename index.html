@@ -116,6 +116,11 @@ nav::after{content:'';position:absolute;bottom:-1px;left:0;width:35%;height:1px;
 .stitle span{color:var(--cyan)}
 .sline{flex:1;height:1px;background:linear-gradient(90deg,var(--border2),transparent)}
 
+/* SUMMARY BLOCK */
+.summary-block{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--cyan);padding:1.5rem 2rem;margin-bottom:3.5rem;font-size:.95rem;font-weight:300;color:var(--txt);line-height:1.9;position:relative}
+.summary-block::before{content:'// PROFESSIONAL SUMMARY';position:absolute;top:-.6rem;left:1.5rem;font-family:var(--mono);font-size:.6rem;color:var(--cyan);background:var(--bg2);padding:0 .5rem;letter-spacing:.1em}
+.summary-block strong{color:var(--cyan);font-weight:400}
+
 /* TIMELINE */
 .timeline{position:relative;padding-left:0}
 .tl-bar{position:absolute;left:170px;top:0;bottom:0;width:1px;background:var(--border)}
@@ -129,6 +134,7 @@ nav::after{content:'';position:absolute;bottom:-1px;left:0;width:35%;height:1px;
 .jco{font-family:var(--mono);font-size:.72rem;color:var(--cyan);letter-spacing:.05em;margin-bottom:.35rem}
 .jpe{font-family:var(--mono);font-size:.65rem;color:var(--txt-dim);line-height:1.8}
 .jpe .now{display:inline-block;background:var(--green-lo);color:var(--green);padding:.08rem .45rem;font-size:.58rem;letter-spacing:.08em;margin-top:.3rem}
+.jpe .promo{display:inline-block;background:var(--orange-lo);color:var(--orange);padding:.08rem .45rem;font-size:.58rem;letter-spacing:.08em;margin-top:.3rem}
 
 .jtitle{font-family:var(--head);font-weight:600;font-size:1.1rem;color:var(--txt-hi);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.1rem;padding-bottom:.65rem;border-bottom:1px solid var(--border);position:relative}
 .jtitle::after{content:'';position:absolute;bottom:-1px;left:0;width:50px;height:1px;background:var(--cyan)}
@@ -137,6 +143,8 @@ nav::after{content:'';position:absolute;bottom:-1px;left:0;width:35%;height:1px;
 .jb li{display:flex;gap:.75rem;font-size:.9rem;color:var(--txt);padding:.4rem 0;font-weight:300;line-height:1.7;border-bottom:1px solid rgba(0,212,255,.04);transition:color .2s}
 .jb li:hover{color:var(--txt-hi)}
 .jb li::before{content:'//';font-family:var(--mono);font-size:.62rem;color:var(--cyan);opacity:.55;flex-shrink:0;padding-top:.35rem;letter-spacing:-.1em}
+.jb li.award{color:var(--orange)}
+.jb li.award::before{color:var(--orange);opacity:.8}
 
 /* SKILLS */
 .sg-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.5px;background:var(--border);border:1px solid var(--border)}
@@ -169,7 +177,7 @@ nav::after{content:'';position:absolute;bottom:-1px;left:0;width:35%;height:1px;
 
 /* AWARDS */
 .aw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem}
-.aw{display:flex;gap:1rem;padding:1.4rem;background:var(--bg2);border:1px solid var(--border);position:relative;overflow:hidden;transition:border-color .2s;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .2s}
+.aw{display:flex;gap:1rem;padding:1.4rem;background:var(--bg2);border:1px solid var(--border);position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .2s}
 .aw.vis{opacity:1;transform:none}
 .aw:hover{border-color:var(--orange)}
 .aw::before{content:'';position:absolute;top:0;left:0;width:3px;height:0;background:var(--orange);transition:height .3s}
@@ -177,6 +185,17 @@ nav::after{content:'';position:absolute;bottom:-1px;left:0;width:35%;height:1px;
 .aw-ico{width:40px;height:40px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--orange-lo);border:1px solid rgba(255,107,26,.2);font-size:1.2rem}
 .aw-ttl{font-family:var(--head);font-weight:600;font-size:.92rem;color:var(--txt-hi);margin-bottom:.2rem;letter-spacing:.02em}
 .aw-sub{font-family:var(--mono);font-size:.66rem;color:var(--txt-dim)}
+
+/* EDUCATION */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem}
+.edu-card{background:var(--bg2);border:1px solid var(--border);padding:1.5rem;position:relative;overflow:hidden;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s,border-color .2s}
+.edu-card.vis{opacity:1;transform:none}
+.edu-card:hover{border-color:var(--cyan)}
+.edu-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:opacity .2s}
+.edu-card:hover::after{opacity:1}
+.edu-deg{font-family:var(--head);font-weight:600;font-size:1rem;color:var(--txt-hi);margin-bottom:.35rem;letter-spacing:.03em}
+.edu-inst{font-family:var(--mono);font-size:.72rem;color:var(--cyan);margin-bottom:.25rem}
+.edu-yr{font-family:var(--mono);font-size:.65rem;color:var(--txt-dim)}
 
 /* CONTACT */
 #contact{background:var(--bg2)}
@@ -259,12 +278,12 @@ footer span{color:var(--cyan)}
     <h1 class="hname">
       <span class="c1" data-t="Prithvi">Prithvi</span><br>Raj V.
     </h1>
-    <div class="htitle">Technical Support Expert · CRM | RMM | SaaS Operations</div>
+    <div class="htitle">Technical Support Expert · SaaS &amp; Enterprise Platforms</div>
     <p class="hdesc">
-      <strong>~4 years</strong> delivering expert application support for enterprise SaaS platforms.
-      Expert in <strong>TCP/IP diagnostics</strong>, <strong>API integrations</strong>,
-      <strong>ITIL incident management</strong>, and high-availability infrastructure
-      across <strong>APAC &amp; EMEA</strong>.
+      <strong>3+ years</strong> supporting enterprise SaaS platforms and cloud infrastructure across global environments.
+      Skilled in <strong>API integrations</strong>, <strong>ITIL incident management</strong>,
+      and translating complex technical findings into clear resolutions for
+      <strong>enterprise clients across APAC &amp; EMEA</strong>.
     </p>
     <div class="hbtns">
       <a href="#experience" class="btn btn-a"><span>▶ View Experience</span></a>
@@ -276,10 +295,10 @@ footer span{color:var(--cyan)}
     <div class="status"><span class="pdot"></span>AVAILABLE · IMMEDIATE JOINING</div>
 
     <div class="stat-grid">
-      <div class="sc"><div class="sn">3+<em>yr</em></div><div class="sl">Total Experience</div></div>
+      <div class="sc"><div class="sn">3<em>yr+</em></div><div class="sl">Total Experience</div></div>
       <div class="sc"><div class="sn">400<em>+</em></div><div class="sl">Customers / Year</div></div>
-      <div class="sc"><div class="sn">90<em>%+</em></div><div class="sl">Same-Day Resolution Rate</div></div>
-      <div class="sc"><div class="sn">2<em>k+</em></div><div class="sl">Tickets Resolved | EMEA</div></div>
+      <div class="sc"><div class="sn">90<em>%+</em></div><div class="sl">Same-Day Resolution</div></div>
+      <div class="sc"><div class="sn">2k<em>+</em></div><div class="sl">Tickets Resolved · EMEA</div></div>
     </div>
 
     <div class="terminal">
@@ -290,12 +309,12 @@ footer span{color:var(--cyan)}
         <em>prithvi@kaseya:~</em>
       </div>
       <div class="trow"><span class="p">❯ </span><span class="c">whoami</span></div>
-      <div class="trow"><span class="o">prithvi_raj_v — Tech Support Expert</span></div>
+      <div class="trow"><span class="o">prithvi_raj_v — SaaS Support Expert</span></div>
       <div class="trow"><span class="p">❯ </span><span class="c">uptime --experience</span></div>
-      <div class="trow"><span class="o">~4yr — DXC Technology + Kaseya Software</span></div>
-      <div class="trow"><span class="p">❯ </span><span class="c">cat specializations.txt</span></div>
-      <div class="trow"><span class="e">Kaseya VSA · Datto RMM · SaaS Ops</span></div>
-      <div class="trow"><span class="e">ITIL · RCA · API Troubleshooting</span></div>
+      <div class="trow"><span class="o">3yr+ — DXC Technology + Kaseya Software</span></div>
+      <div class="trow"><span class="p">❯ </span><span class="c">cat open_to.txt</span></div>
+      <div class="trow"><span class="e">SaaS Support · Tech Account Mgmt</span></div>
+      <div class="trow"><span class="e">Product Specialist · Enterprise Solutions</span></div>
       <div class="trow"><span class="p">❯ </span><span class="c">status --now</span></div>
       <div class="trow"><span class="d">[</span><span class="o">OPEN_TO_WORK</span><span class="d">] ready for next mission</span></div>
       <div class="trow"><span class="p">❯ <span class="cur-blink">█</span></span></div>
@@ -310,45 +329,57 @@ footer span{color:var(--cyan)}
     <h2 class="stitle">Experi<span>ence</span></h2>
     <div class="sline"></div>
   </div>
+
+  <!-- Summary -->
+  <div class="summary-block rev">
+    Customer-focused technology professional with <strong>3+ years</strong> of experience supporting enterprise SaaS platforms, cloud infrastructure, and business-critical applications across global environments. Skilled in diagnosing complex <strong>software, network, and integration issues</strong>, translating technical findings into clear, actionable resolutions. Experienced working cross-functionally with <strong>engineering, product, and infrastructure teams</strong>. Open to roles in <strong>SaaS product support, technical account management, product specialist, or enterprise solutions</strong>.
+  </div>
+
   <div class="timeline">
     <div class="tl-bar"></div>
 
+    <!-- Kaseya -->
     <div class="job">
       <div class="jm">
         <div class="jco">Kaseya Software</div>
         <div class="jpe">Sep 2024 – Present<br>Bangalore, India<br><span class="now">● CURRENT</span></div>
       </div>
       <div>
-        <div class="jtitle">Technical Support Expert – CRM | RMM | SaaS Operations</div>
+        <div class="jtitle">Technical Support Expert – SaaS &amp; Enterprise Platforms</div>
         <ul class="jb">
-          <li>Deliver global technical support for enterprise SaaS platforms — Kaseya VSA, Datto RMM, Pulseway — resolving complex application, network, and integration issues for global customers across Windows and macOS environments.</li>
-          <li>Diagnose and troubleshoot hardware, software, and network incidents involving DNS, TCP/IP, SSL/TLS, authentication protocols, and API integrations ensuring high availability of business-critical IT services.</li>
-          <li>Manage end-to-end incident, problem, and change management workflows following the ITIL framework, consistently meeting SLA targets while maintaining high user satisfaction scores.</li>
-          <li>Collaborate with Engineering, Infrastructure, and Product teams to perform Root Cause Analysis (RCA), log defects, and drive resolution of recurring issues — improving system reliability and reducing ticket volume.</li>
-          <li>Support user access management, endpoint configuration, and system administration for enterprise environments including deployment troubleshooting and IT automation workflows.</li>
-          <li>Contribute to internal knowledge base, FAQs, and troubleshooting documentation to improve support efficiency and enable self-service resolution.</li>
-          <li>Assist global enterprise customers with SaaS platform configuration, integrations, and automation workflows ensuring seamless IT service delivery across distributed, multi-OS environments.</li>
+          <li>Provide advanced technical support for enterprise SaaS platforms including Kaseya VSA, Datto RMM, and Pulseway for global customers across Windows and macOS environments.</li>
+          <li>Troubleshoot and resolve complex issues spanning DNS, TCP/IP, SSL/TLS, API integrations, authentication protocols, and endpoint configuration in multi-tenant enterprise environments.</li>
+          <li>Act as technical liaison between customers and engineering teams, conducting Root Cause Analysis (RCA), logging defects, and driving long-term resolution of recurring product issues.</li>
+          <li>Manage end-to-end incident, problem, and change management workflows in alignment with ITIL best practices, meeting SLA targets and maintaining high customer satisfaction scores.</li>
+          <li>Maintained a 90%+ same-day resolution rate across 2,000+ EMEA tickets, resolving complex L2 SaaS and network incidents within 8 hours.</li>
+          <li>Support enterprise customers with SaaS platform configuration, onboarding, automation workflows, and integration setup ensuring seamless IT service delivery.</li>
+          <li>Build and maintain internal knowledge base articles, troubleshooting guides, and FAQs to improve team productivity and promote customer self-service.</li>
+          <li class="award">🏅 Top Customer Recognition Award (2025) — highest Gold Star ratings team-wide within 5 months of joining.</li>
+          <li class="award">📩 Formal managerial recognition for outstanding performance and measurable contributions to support quality and team efficiency.</li>
         </ul>
       </div>
     </div>
 
+    <!-- DXC ISA Promoted -->
     <div class="job">
       <div class="jm">
         <div class="jco">DXC Technology</div>
-        <div class="jpe">Oct 2023 – Sep 2024<br>Bangalore, India</div>
+        <div class="jpe">Oct 2023 – Sep 2024<br>Bangalore, India<br><span class="promo">↑ PROMOTED</span></div>
       </div>
       <div>
         <div class="jtitle">Infrastructure Service Analyst</div>
         <ul class="jb">
-          <li>Monitored network performance using SureMDM and SolarWinds, identifying and escalating anomalies to minimise infrastructure downtime.</li>
-          <li>Performed CLI-based troubleshooting on Cisco routers, switches, and access points; resolved VPN and VoIP connectivity issues for end-users.</li>
-          <li>Enforced VLAN configurations, access control policies, and firewall rule updates; monitored for security threats.</li>
-          <li>Maintained Microsoft O365 email accounts and licences for a user base of 1,000+ employees.</li>
-          <li>Trained 50+ L1/L2 agents on process changes and known-issue management; maintained a knowledge base of 300+ articles.</li>
+          <li>Monitored and maintained enterprise network infrastructure using SureMDM and SolarWinds; proactively identified and resolved performance issues to minimise downtime.</li>
+          <li>Performed CLI-based troubleshooting on Cisco routers, switches, and access points; supported VPN and VoIP connectivity for enterprise users.</li>
+          <li>Administered Microsoft O365 accounts, licences, and public folder access for 1,000+ employees.</li>
+          <li>Assisted in enforcing security policies including VLAN configurations, Access Control Lists (ACLs), and firewall rule updates.</li>
+          <li>Delivered technical and process training to 50+ support agents, covering tool usage, process updates, and known issue resolution.</li>
+          <li>Maintained a knowledge base of 300+ articles, ensuring accuracy and relevance for the global support team.</li>
         </ul>
       </div>
     </div>
 
+    <!-- DXC TSE -->
     <div class="job">
       <div class="jm">
         <div class="jco">DXC Technology</div>
@@ -357,10 +388,13 @@ footer span{color:var(--cyan)}
       <div>
         <div class="jtitle">Technical Support Engineer</div>
         <ul class="jb">
-          <li>Assisted 400+ customers annually with a 98% first-call resolution rate across IP, TCP, UDP, DNS, DHCP, SSL, HTTP, and EDT protocols.</li>
-          <li>Managed Active Directory user accounts and access control for 1,200+ employees; maintained IBM iNet servers at 99.5% uptime.</li>
-          <li>Configured and maintained routers, switches, and VLANs with a 100% SLA resolution rate.</li>
-          <li>Collaborated with 50+ UK colleagues, managing cross-cultural communication and improving workflow efficiency by 30% via Sharp 4.</li>
+          <li>Provided technical support for enterprise clients managing network, system, and application issues with consistent SLA adherence.</li>
+          <li>Handled enterprise protocols including IP, TCP, UDP, DNS, DHCP, SSL, and HTTP; resolved connectivity, authentication, and access issues.</li>
+          <li>Configured and maintained routers, switches, and VLANs in a multi-site global environment.</li>
+          <li>Managed Active Directory for 1,200+ employees, handling user provisioning, access control, and authentication.</li>
+          <li>Maintained IBM iNet servers at 99.5% uptime and improved operational workflow efficiency by 30% through effective use of internal tooling.</li>
+          <li>Collaborated with 50+ colleagues across UK operations, managing cross-cultural communication for seamless service delivery.</li>
+          <li class="award">🏆 FY22-H1 Collaboration Award &amp; FY23-Q3 DXC Champs Award for sustained high performance.</li>
         </ul>
       </div>
     </div>
@@ -379,47 +413,50 @@ footer span{color:var(--cyan)}
       <div class="sgt">Networking &amp; Protocols</div>
       <div class="tags">
         <span class="tag">TCP/IP</span><span class="tag">DNS</span><span class="tag">DHCP</span>
-        <span class="tag">VLANs</span><span class="tag">Subnetting</span><span class="tag">OSI Model</span>
-        <span class="tag">Routing &amp; Switching</span><span class="tag">VPN</span><span class="tag">SSL/TLS</span><span class="tag">VoIP</span>
+        <span class="tag">VPN</span><span class="tag">SSL/TLS</span><span class="tag">HTTP/HTTPS</span>
+        <span class="tag">VLANs</span><span class="tag">Routing &amp; Switching</span>
+        <span class="tag">Subnetting</span><span class="tag">NAT</span><span class="tag">BGP basics</span>
+        <span class="tag">Firewalls</span><span class="tag">IDS/IPS</span>
       </div>
     </div>
     <div class="sg">
-      <div class="sgt">SaaS Platforms</div>
+      <div class="sgt">SaaS &amp; Cloud Platforms</div>
       <div class="tags">
-        <span class="tag">Kaseya VSA</span><span class="tag">Datto RMM</span><span class="tag">Datto BCDR</span>
-        <span class="tag">Datto Backup</span><span class="tag">Pulseway</span><span class="tag">BMS / PSA</span>
-        <span class="tag">Autotask</span><span class="tag">Zendesk</span><span class="tag">JIRA</span>
+        <span class="tag">Kaseya VSA</span><span class="tag">Datto RMM</span><span class="tag">Pulseway</span>
+        <span class="tag">Datto BCDR</span><span class="tag">Microsoft O365</span>
+        <span class="tag">Azure AD basics</span><span class="tag">Google Workspace</span>
       </div>
     </div>
     <div class="sg">
-      <div class="sgt">Security &amp; Monitoring</div>
+      <div class="sgt">Monitoring &amp; Diagnostics</div>
       <div class="tags">
-        <span class="tag">Firewalls</span><span class="tag">IDS/IPS</span><span class="tag">Wireshark</span>
-        <span class="tag">Nmap</span><span class="tag">SolarWinds</span><span class="tag">SureMDM</span>
-        <span class="tag">Log Analysis</span><span class="tag">Threat Management</span>
+        <span class="tag">SolarWinds</span><span class="tag">SureMDM</span><span class="tag">Wireshark</span>
+        <span class="tag">Nmap</span><span class="tag">PuTTY</span><span class="tag">Event Viewer</span>
+        <span class="tag">Log Analysis</span><span class="tag">Postman</span>
       </div>
     </div>
     <div class="sg">
-      <div class="sgt">Infrastructure</div>
+      <div class="sgt">ITSM &amp; Support Tools</div>
       <div class="tags">
-        <span class="tag">VMware</span><span class="tag">Windows Server</span><span class="tag">Active Directory</span>
-        <span class="tag">Microsoft SQL</span><span class="tag">Microsoft 365</span><span class="tag">MDM</span>
-        <span class="tag">IBM iNet</span><span class="tag">PuTTY</span><span class="tag">Postman</span>
+        <span class="tag">Zendesk</span><span class="tag">JIRA</span><span class="tag">BMS</span>
+        <span class="tag">Autotask</span><span class="tag">ServiceNow basics</span>
+        <span class="tag">SLA Management</span><span class="tag">Escalation Management</span><span class="tag">RCA</span>
       </div>
     </div>
     <div class="sg">
-      <div class="sgt">ITIL &amp; Support Ops</div>
+      <div class="sgt">Systems &amp; Endpoint</div>
       <div class="tags">
-        <span class="tag">Incident Management</span><span class="tag">Problem Management</span>
-        <span class="tag">Change Management</span><span class="tag">RCA</span><span class="tag">SLA Management</span>
-        <span class="tag">KB Documentation</span><span class="tag">L1/L2/L3 Escalations</span>
+        <span class="tag">Windows Server</span><span class="tag">Active Directory</span>
+        <span class="tag">Microsoft SQL</span><span class="tag">VMware</span>
+        <span class="tag">Apple / iOS MDM</span><span class="tag">Mobile Device Management</span>
       </div>
     </div>
     <div class="sg">
-      <div class="sgt">Languages</div>
+      <div class="sgt">Security</div>
       <div class="tags">
-        <span class="tag">English — Professional</span><span class="tag">Tamil — Native</span>
-        <span class="tag">Kannada</span><span class="tag">Hindi</span>
+        <span class="tag">Firewall Rule Management</span><span class="tag">VLAN ACLs</span>
+        <span class="tag">Endpoint Security</span><span class="tag">Access Control</span>
+        <span class="tag">Cisco Cyber Threat Mgmt</span>
       </div>
     </div>
   </div>
@@ -493,19 +530,45 @@ footer span{color:var(--cyan)}
       <div class="aw-ico">📩</div>
       <div>
         <div class="aw-ttl">Managerial Recognition for Excellence</div>
-        <div class="aw-sub">Kaseya · 2025 — Official recognition for exceptional service delivery</div>
+        <div class="aw-sub">Kaseya · 2025 — Outstanding performance &amp; support efficiency</div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- EDUCATION -->
+<section class="sec" id="education">
+  <div class="sh rev">
+    <div class="snum">05</div>
+    <h2 class="stitle">Educ<span>ation</span></h2>
+    <div class="sline"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-deg">B.E. Computer Science &amp; Engineering</div>
+      <div class="edu-inst">Sri Sairam College of Engineering</div>
+      <div class="edu-yr">2022 · Bangalore, India</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">12th Grade</div>
+      <div class="edu-inst">Sri Vijay Vidyalaya</div>
+      <div class="edu-yr">May 2018 · Hosur, India</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">10th Grade</div>
+      <div class="edu-inst">Shemford School</div>
+      <div class="edu-yr">May 2016 · Hosur, India</div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
-<section class="sec" id="contact">
+<section class="sec alt" id="contact">
   <div class="contact-inner">
     <div class="rev">
       <div class="ctag">// let's connect</div>
       <h2 class="ctitle">Open To<br><span>New Roles</span></h2>
-      <p class="cdesc">Available immediately for SaaS support, network engineering, or IT operations roles — APAC, EMEA, or remote. Let's build something reliable together.</p>
+      <p class="cdesc">Available immediately for SaaS product support, technical account management, product specialist, or enterprise solutions roles — APAC, EMEA, or remote.</p>
     </div>
     <div class="clinks rev">
       <a href="mailto:prithvi.rahul.pr@gmail.com" class="cl">
@@ -520,6 +583,10 @@ footer span{color:var(--cyan)}
         <span class="cl-ico">LINKEDIN</span>
         <span class="cl-lbl">linkedin.com/in/prithvi49</span>
       </a>
+      <a href="https://prithvilabs.github.io" target="_blank" class="cl">
+        <span class="cl-ico">PORTFOLIO</span>
+        <span class="cl-lbl">prithvilabs.github.io</span>
+      </a>
       <a href="https://www.credly.com/badges/db4e439e-0fbc-4e3c-abb0-bb3e490fb22f" target="_blank" class="cl">
         <span class="cl-ico">CREDLY</span>
         <span class="cl-lbl">Cisco Cyber Threat — Verified Badge</span>
@@ -529,7 +596,7 @@ footer span{color:var(--cyan)}
 </section>
 
 <footer>
-  <span>Prithvi Raj V</span> · SaaS Support &amp; Network Engineer · Bangalore, India
+  <span>Prithvi Raj V</span> · SaaS &amp; Enterprise Support Expert · Bangalore, India
 </footer>
 
 <script>
@@ -554,7 +621,7 @@ document.querySelectorAll('a,button').forEach(el=>{
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
 },{threshold:0.1});
-document.querySelectorAll('.job,.sg,.cc,.aw,.rev').forEach((el,i)=>{
+document.querySelectorAll('.job,.sg,.cc,.aw,.edu-card,.rev').forEach((el,i)=>{
   el.style.transitionDelay=(i%5)*.07+'s';
   obs.observe(el);
 });
